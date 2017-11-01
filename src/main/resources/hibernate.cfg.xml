@@ -10,11 +10,11 @@
     </property>
 
     <property name="connection.url">
-      localhost
+      jdbc:mysql://localhost:3306/hibernate_test?serverTimezone=UTC
     </property>
 
     <property name="connection.driver_class">
-      com.mysql.jdbc.Driver
+      com.mysql.cj.jdbc.Driver
     </property>
 
     <property name="connection.username">
@@ -24,6 +24,8 @@
     <property name="connection.password">
       1234
     </property>
+
+    <mapping class="ru.fedichkindenis.Entity.Teacher" />
 
   </session-factory>
 </hibernate-configuration>
