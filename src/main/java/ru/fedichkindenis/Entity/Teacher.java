@@ -2,6 +2,7 @@ package ru.fedichkindenis.Entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Teacher")
@@ -29,6 +30,9 @@ public class Teacher {
 
     @Column(name = "address")
     private String address;
+
+    @OneToMany(mappedBy = "teacher")
+    private List<Schedule> scheduleList;
 
     public long getId() {
         return id;
@@ -80,5 +84,9 @@ public class Teacher {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Schedule> getScheduleList() {
+        return scheduleList;
     }
 }

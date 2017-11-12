@@ -35,10 +35,13 @@ public class Main {
 
             printTeacher(session, 1);*/
 
-            Teacher teacher = session.get(Teacher.class, 1l);
+            /*Teacher teacher = session.get(Teacher.class, 1l);
             transaction.begin();
             Schedule schedule = createSchedule(session, teacher);
-            transaction.commit();
+            transaction.commit();*/
+
+            Teacher teacher = session.get(Teacher.class, 1l);
+            printSchedule(teacher.getScheduleList());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,5 +108,16 @@ public class Main {
         session.save(schedule);
 
         return schedule;
+    }
+
+    private static void printSchedule(List<Schedule> scheduleList) throws Exception {
+
+        for(Schedule schedule : scheduleList) {
+            System.out.println("Предмет: " + schedule.getSubject());
+            System.out.println("Номер кабинета: " + schedule.getNumRoom());
+            System.out.println("Время начала: " + schedule.getStartTime());
+            System.out.println("День недели: " + schedule.getDayWeek());
+            System.out.println();
+        }
     }
 }
