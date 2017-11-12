@@ -2,9 +2,7 @@ package ru.fedichkindenis.main;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.registry.StandardServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import ru.fedichkindenis.Entity.Teacher;
 
 import java.util.List;
@@ -13,17 +11,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
-                .build();
         SessionFactory sessionFactory = null;
 
         try {
-            sessionFactory = new MetadataSources(registry)
-                    .buildMetadata()
-                    .buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Exception e) {
-            StandardServiceRegistryBuilder.destroy( registry );
+
         }
 
         Session session = sessionFactory.openSession();
@@ -33,5 +26,7 @@ public class Main {
         for(Teacher teacher : teacherList) {
             System.out.println(teacher.toString());
         }
+        session.close();
+        sessionFactory.close();
     }
 }

@@ -24,6 +24,10 @@
     <property name="connection.password">
       1234
     </property>
+    
+    <property name="hibernate.hbm2ddl.auto">
+      update
+    </property>
 
     <mapping class="ru.fedichkindenis.Entity.Teacher" />
 
