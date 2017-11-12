@@ -13,8 +13,8 @@ public class Schedule {
     @GeneratedValue
     private long id;
 
-    @Column(name = "teacher")
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "teacher", referencedColumnName = "id")
     private Teacher teacher;
 
     @Column(name = "num_room")
@@ -24,10 +24,54 @@ public class Schedule {
     private String subject;
 
     @Column(name = "day_week")
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private DayWeek dayWeek;
 
     @Column(name = "start_time")
     @Temporal(TemporalType.TIME)
     private Date startTime;
+
+    public long getId() {
+        return id;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public String getNumRoom() {
+        return numRoom;
+    }
+
+    public void setNumRoom(String numRoom) {
+        this.numRoom = numRoom;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public DayWeek getDayWeek() {
+        return dayWeek;
+    }
+
+    public void setDayWeek(DayWeek dayWeek) {
+        this.dayWeek = dayWeek;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
 }

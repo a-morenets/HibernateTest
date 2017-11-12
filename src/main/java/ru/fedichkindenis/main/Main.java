@@ -6,7 +6,9 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.type.Type;
+import ru.fedichkindenis.Entity.Schedule;
 import ru.fedichkindenis.Entity.Teacher;
+import ru.fedichkindenis.Enum.DayWeek;
 
 import java.util.Date;
 import java.util.List;
@@ -22,16 +24,21 @@ public class Main {
         try {
             session = sessionFactory.openSession();
             transaction = session.getTransaction();
-            transaction.begin();
 
-            /*Teacher teacher = createTeacher(session);
+            /*transaction.begin();
+            Teacher teacher = createTeacher(session);
             transaction.commit();
 
             transaction.begin();
             deleteTeacher(session, teacher);
-            transaction.commit();*/
+            transaction.commit();
 
-            printTeacher(session, 1);
+            printTeacher(session, 1);*/
+
+            Teacher teacher = session.get(Teacher.class, 1l);
+            transaction.begin();
+            Schedule schedule = createSchedule(session, teacher);
+            transaction.commit();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,5 +91,19 @@ public class Main {
     private static void deleteTeacher(Session session, Teacher teacher) throws Exception {
 
         session.delete(teacher);
+    }
+
+    private static Schedule createSchedule(Session session, Teacher teacher) throws Exception {
+
+        Schedule schedule = new Schedule();
+        schedule.setTeacher(teacher);
+        schedule.setSubject("математика");
+        schedule.setNumRoom("№6");
+        schedule.setStartTime(new Date());
+        schedule.setDayWeek(DayWeek.FRIDAY);
+
+        session.save(schedule);
+
+        return schedule;
     }
 }

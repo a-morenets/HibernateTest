@@ -32,6 +32,7 @@
     <property name="show_sql">true</property>
 
     <mapping class="ru.fedichkindenis.Entity.Teacher" />
+    <mapping class="ru.fedichkindenis.Entity.Schedule" />
 
   </session-factory>
 </hibernate-configuration>
