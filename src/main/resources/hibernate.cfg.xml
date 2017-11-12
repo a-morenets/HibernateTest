@@ -29,6 +29,8 @@
       update
     </property>
 
+    <property name="show_sql">true</property>
+
     <mapping class="ru.fedichkindenis.Entity.Teacher" />
 
   </session-factory>
