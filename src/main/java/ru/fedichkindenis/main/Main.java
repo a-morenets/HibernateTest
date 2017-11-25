@@ -25,17 +25,21 @@ public class Main {
             session = sessionFactory.openSession();
             transaction = session.getTransaction();
 
-            /*transaction.begin();
+          /*  transaction.begin();
             Teacher teacher = createTeacher(session);
-            transaction.commit();
+            transaction.commit();*/
 
-            transaction.begin();
+        /*  Teacher teacher = session.get(Teacher.class, 1l);
+            System.out.println(teacher.getSurName());*/
+
+
+           /* transaction.begin();
             deleteTeacher(session, teacher);
-            transaction.commit();
+            transaction.commit();*/
 
-            printTeacher(session, 1);*/
+           // printTeacher(session, 1);
 
-            /*Teacher teacher = session.get(Teacher.class, 1l);
+         /*   Teacher teacher = session.get(Teacher.class, 1l);
             transaction.begin();
             Schedule schedule = createSchedule(session, teacher);
             transaction.commit();*/
@@ -75,8 +79,8 @@ public class Main {
 
     private static void printTeacher(Session session, long id) throws Exception {
 
-        Query query = session.createQuery("from Teacher t where t.id = :id");
-        query.setParameter("id", id);
+        Query query = session.createQuery("from Teacher t");
+        //query.setParameter("id", id);
 
         List<Teacher> teacherList = query.list();
 
@@ -101,9 +105,10 @@ public class Main {
         Schedule schedule = new Schedule();
         schedule.setTeacher(teacher);
         schedule.setSubject("математика");
-        schedule.setNumRoom("№6");
+        schedule.setNumRoom("№5");
         schedule.setStartTime(new Date());
-        schedule.setDayWeek(DayWeek.FRIDAY);
+        schedule.setDayWeek(DayWeek.MONDAY);
+
 
         session.save(schedule);
 
