@@ -90,6 +90,21 @@ public class Main {
             /*Room room = session.get(Room.class, 22l);
             System.out.println(room.getTeacher().getFirstName());*/
 
+            /*transaction.begin();
+            Teacher teacher = session.get(Teacher.class, 10l);
+            Car car = new Car();
+            car.setNum("DD123EE");
+            car.setModel("BMW");
+            session.save(car);
+            teacher.addCar(car);
+            session.update(teacher);
+            transaction.commit();*/
+
+            /*Car car = session.get(Car.class, 23l);
+            for (Teacher teacher : car.getTeacherSet()) {
+                System.out.println(teacher.getFirstName());
+            }*/
+
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();

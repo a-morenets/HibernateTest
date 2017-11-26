@@ -36,6 +36,7 @@
     <mapping class="ru.fedichkindenis.Entity.Passport" />
     <mapping class="ru.fedichkindenis.Entity.Assistant" />
     <mapping class="ru.fedichkindenis.Entity.Room" />
+    <mapping class="ru.fedichkindenis.Entity.Car" />
 
   </session-factory>
 </hibernate-configuration>

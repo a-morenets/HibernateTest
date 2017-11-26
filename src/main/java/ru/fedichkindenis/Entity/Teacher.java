@@ -2,7 +2,9 @@ package ru.fedichkindenis.Entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Teacher")
@@ -50,6 +52,12 @@ public class Teacher {
             joinColumns = @JoinColumn(name = "id_teacher"),
             inverseJoinColumns = @JoinColumn(name = "id_room"))
     private Room room;
+
+    @ManyToMany
+    @JoinTable(name = "teacher_car",
+            joinColumns = @JoinColumn(name = "id_teacher"),
+            inverseJoinColumns = @JoinColumn(name = "id_car"))
+    private Set<Car> carSet = new HashSet<Car>();
 
     public long getId() {
         return id;
@@ -125,5 +133,13 @@ public class Teacher {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public void addCar(Car car) {
+        carSet.add(car);
+    }
+
+    public Set<Car> getCarSet() {
+        return carSet;
     }
 }
