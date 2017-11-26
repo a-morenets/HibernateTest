@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.type.Type;
+import ru.fedichkindenis.Entity.Passport;
 import ru.fedichkindenis.Entity.Schedule;
 import ru.fedichkindenis.Entity.Teacher;
 import ru.fedichkindenis.Enum.DayWeek;
@@ -39,10 +40,10 @@ public class Main {
 
             //printTeacher(session, 10);
 
-            Teacher teacher = session.get(Teacher.class, 10l);
+            /*Teacher teacher = session.get(Teacher.class, 10l);
             transaction.begin();
             Schedule schedule = createSchedule(session, teacher);
-            transaction.commit();
+            transaction.commit();*/
 
             /*Teacher teacher = session.get(Teacher.class, 10l);
             printSchedule(teacher.getScheduleList());*/
@@ -56,14 +57,23 @@ public class Main {
 
             //Schedule schedule = session.get(Schedule.class, 11l);
 
+            /*transaction.begin();
+            Passport passport = createPassport(session);
+            Teacher teacher = session.get(Teacher.class, 10l);
+            teacher.setPassport(passport);
+            session.update(teacher);
+            transaction.commit();*/
+
+            /*Passport passport = session.get(Passport.class, 21l);
+            System.out.println(passport.getTeacher().getFirstName());*/
+
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         } finally {
             session.close();
+            sessionFactory.close();
         }
-
-        sessionFactory.close();
     }
 
     private static SessionFactory getSessionFactory() {
@@ -146,5 +156,17 @@ public class Main {
         System.out.println("id преподователя: " + schedule.getTeacher().getId());
         System.out.println("Имя преподователя: " + schedule.getTeacher().getFirstName());
         System.out.println();
+    }
+
+    private static Passport createPassport(Session session) throws Exception {
+
+        Passport passport = new Passport();
+
+        passport.setNum("123456");
+        passport.setSeries("PP");
+
+        session.save(passport);
+
+        return passport;
     }
 }

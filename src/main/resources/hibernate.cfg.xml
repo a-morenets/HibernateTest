@@ -33,6 +33,7 @@
 
     <mapping class="ru.fedichkindenis.Entity.Teacher" />
     <mapping class="ru.fedichkindenis.Entity.Schedule" />
+    <mapping class="ru.fedichkindenis.Entity.Passport" />
 
   </session-factory>
 </hibernate-configuration>

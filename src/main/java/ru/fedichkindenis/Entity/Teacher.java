@@ -37,6 +37,10 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher")
     private List<Schedule> scheduleList;
 
+    @OneToOne
+    @JoinColumn(name = "passport")
+    private Passport passport;
+
     public long getId() {
         return id;
     }
@@ -91,5 +95,13 @@ public class Teacher {
 
     public List<Schedule> getScheduleList() {
         return scheduleList;
+    }
+
+    public Passport getPassport() {
+        return passport;
+    }
+
+    public void setPassport(Passport passport) {
+        this.passport = passport;
     }
 }
