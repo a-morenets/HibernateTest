@@ -13,8 +13,8 @@ public class Schedule {
     @GeneratedValue
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "teacher", referencedColumnName = "id", insertable = false, updatable = false)
     private Teacher teacher;
 
     @Column(name = "num_room")

@@ -37,15 +37,24 @@ public class Main {
             deleteTeacher(session, teacher);
             transaction.commit();*/
 
-           // printTeacher(session, 1);
+            //printTeacher(session, 10);
 
-         /*   Teacher teacher = session.get(Teacher.class, 1l);
+            Teacher teacher = session.get(Teacher.class, 10l);
             transaction.begin();
             Schedule schedule = createSchedule(session, teacher);
+            transaction.commit();
+
+            /*Teacher teacher = session.get(Teacher.class, 10l);
+            printSchedule(teacher.getScheduleList());*/
+
+            /*transaction.begin();
+            Teacher teacher = session.get(Teacher.class, 2l);
+            session.delete(teacher);
             transaction.commit();*/
 
-            Teacher teacher = session.get(Teacher.class, 1l);
-            printSchedule(teacher.getScheduleList());
+            //printScheduleById(session, 11);
+
+            //Schedule schedule = session.get(Schedule.class, 11l);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,8 +88,8 @@ public class Main {
 
     private static void printTeacher(Session session, long id) throws Exception {
 
-        Query query = session.createQuery("from Teacher t");
-        //query.setParameter("id", id);
+        Query query = session.createQuery("from Teacher t where t.id = :id");
+        query.setParameter("id", id);
 
         List<Teacher> teacherList = query.list();
 
@@ -124,5 +133,18 @@ public class Main {
             System.out.println("День недели: " + schedule.getDayWeek());
             System.out.println();
         }
+    }
+
+    private static void printScheduleById(Session session, long id) throws Exception {
+
+        Schedule schedule = session.get(Schedule.class, id);
+
+        System.out.println("Предмет: " + schedule.getSubject());
+        System.out.println("Номер кабинета: " + schedule.getNumRoom());
+        System.out.println("Время начала: " + schedule.getStartTime());
+        System.out.println("День недели: " + schedule.getDayWeek());
+        System.out.println("id преподователя: " + schedule.getTeacher().getId());
+        System.out.println("Имя преподователя: " + schedule.getTeacher().getFirstName());
+        System.out.println();
     }
 }

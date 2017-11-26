@@ -31,6 +31,9 @@ public class Teacher {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "description", nullable = true, length = 51,columnDefinition = "varchar(46) not null")
+    private String description;
+
     @OneToMany(mappedBy = "teacher")
     private List<Schedule> scheduleList;
 
