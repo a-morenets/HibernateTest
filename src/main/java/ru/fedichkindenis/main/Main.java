@@ -29,7 +29,7 @@ public class Main {
             Teacher teacher = createTeacher(session);
             transaction.commit();*/
 
-        /*  Teacher teacher = session.get(Teacher.class, 1l);
+        /*  Teacher teacher = session.get(Teacher.class, 1L);
             System.out.println(teacher.getSurName());*/
 
 
@@ -39,48 +39,48 @@ public class Main {
 
             //printTeacher(session, 10);
 
-            /*Teacher teacher = session.get(Teacher.class, 10l);
+            /*Teacher teacher = session.get(Teacher.class, 10L);
             transaction.begin();
             Schedule schedule = createSchedule(session, teacher);
             transaction.commit();*/
 
-            /*Teacher teacher = session.get(Teacher.class, 10l);
+            /*Teacher teacher = session.get(Teacher.class, 10L);
             printSchedule(teacher.getScheduleList());*/
 
             /*transaction.begin();
-            Teacher teacher = session.get(Teacher.class, 2l);
+            Teacher teacher = session.get(Teacher.class, 2L);
             session.delete(teacher);
             transaction.commit();*/
 
             //printScheduleById(session, 11);
 
-            //Schedule schedule = session.get(Schedule.class, 11l);
+            //Schedule schedule = session.get(Schedule.class, 11L);
 
             /*transaction.begin();
             Passport passport = createPassport(session);
-            Teacher teacher = session.get(Teacher.class, 10l);
+            Teacher teacher = session.get(Teacher.class, 10L);
             teacher.setPassport(passport);
             session.update(teacher);
             transaction.commit();*/
 
-            /*Passport passport = session.get(Passport.class, 21l);
+            /*Passport passport = session.get(Passport.class, 21L);
             System.out.println(passport.getTeacher().getFirstName());*/
 
             /*transaction.begin();
             Assistant assistant = new Assistant();
-            assistant.setId(10l);
+            assistant.setId(10L);
             assistant.setName("Кирилл");
             session.save(assistant);
             transaction.commit();*/
 
-            /*Assistant assistant = session.get(Assistant.class, 10l);
+            /*Assistant assistant = session.get(Assistant.class, 10L);
             System.out.println(assistant.getTeacher().getFirstName());*/
 
-            /*Teacher teacher = session.get(Teacher.class, 10l);
+            /*Teacher teacher = session.get(Teacher.class, 10L);
             System.out.println(teacher.getAssistant().getName());*/
 
             /*transaction.begin();
-            Teacher teacher = session.get(Teacher.class, 10l);
+            Teacher teacher = session.get(Teacher.class, 10L);
             Room room = new Room();
             room.setNum("6K");
             session.save(room);
@@ -88,11 +88,11 @@ public class Main {
             session.update(teacher);
             transaction.commit();*/
 
-            /*Room room = session.get(Room.class, 22l);
+            /*Room room = session.get(Room.class, 22L);
             System.out.println(room.getTeacher().getFirstName());*/
 
             /*transaction.begin();
-            Teacher teacher = session.get(Teacher.class, 10l);
+            Teacher teacher = session.get(Teacher.class, 10L);
             Car car = new Car();
             car.setNum("DD123EE");
             car.setModel("BMW");
@@ -101,7 +101,7 @@ public class Main {
             session.update(teacher);
             transaction.commit();*/
 
-            /*Car car = session.get(Car.class, 23l);
+            /*Car car = session.get(Car.class, 23L);
             for (Teacher teacher : car.getTeacherSet()) {
                 System.out.println(teacher.getFirstName());
             }*/
@@ -110,7 +110,7 @@ public class Main {
             List<Teacher> teacherList = query.list();*/
 
             /*Query query = session.createQuery("from Teacher t");
-            query.setParameter("id", 10l);
+            query.setParameter("id", 10L);
             List<Teacher> teacherList = query.list();*/
 
             /*Query query = session.createQuery("from Teacher t");
