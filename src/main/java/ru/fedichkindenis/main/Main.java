@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.type.Type;
+import ru.fedichkindenis.Entity.Assistant;
 import ru.fedichkindenis.Entity.Passport;
 import ru.fedichkindenis.Entity.Schedule;
 import ru.fedichkindenis.Entity.Teacher;
@@ -66,6 +67,19 @@ public class Main {
 
             /*Passport passport = session.get(Passport.class, 21l);
             System.out.println(passport.getTeacher().getFirstName());*/
+
+            /*transaction.begin();
+            Assistant assistant = new Assistant();
+            assistant.setId(10l);
+            assistant.setName("Кирилл");
+            session.save(assistant);
+            transaction.commit();*/
+
+            /*Assistant assistant = session.get(Assistant.class, 10l);
+            System.out.println(assistant.getTeacher().getFirstName());*/
+
+            Teacher teacher = session.get(Teacher.class, 10l);
+            System.out.println(teacher.getAssistant().getName());
 
         } catch (Exception e) {
             e.printStackTrace();

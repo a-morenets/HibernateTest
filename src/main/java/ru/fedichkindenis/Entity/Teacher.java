@@ -41,6 +41,10 @@ public class Teacher {
     @JoinColumn(name = "passport")
     private Passport passport;
 
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Assistant assistant;
+
     public long getId() {
         return id;
     }
@@ -103,5 +107,9 @@ public class Teacher {
 
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+
+    public Assistant getAssistant() {
+        return assistant;
     }
 }
