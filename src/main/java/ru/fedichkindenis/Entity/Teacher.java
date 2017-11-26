@@ -45,6 +45,12 @@ public class Teacher {
     @PrimaryKeyJoinColumn
     private Assistant assistant;
 
+    @OneToOne
+    @JoinTable(name = "teacher_room",
+            joinColumns = @JoinColumn(name = "id_teacher"),
+            inverseJoinColumns = @JoinColumn(name = "id_room"))
+    private Room room;
+
     public long getId() {
         return id;
     }
@@ -111,5 +117,13 @@ public class Teacher {
 
     public Assistant getAssistant() {
         return assistant;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

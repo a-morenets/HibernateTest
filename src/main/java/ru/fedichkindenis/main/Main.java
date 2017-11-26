@@ -6,10 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.hibernate.type.Type;
-import ru.fedichkindenis.Entity.Assistant;
-import ru.fedichkindenis.Entity.Passport;
-import ru.fedichkindenis.Entity.Schedule;
-import ru.fedichkindenis.Entity.Teacher;
+import ru.fedichkindenis.Entity.*;
 import ru.fedichkindenis.Enum.DayWeek;
 
 import java.util.Date;
@@ -78,8 +75,20 @@ public class Main {
             /*Assistant assistant = session.get(Assistant.class, 10l);
             System.out.println(assistant.getTeacher().getFirstName());*/
 
+            /*Teacher teacher = session.get(Teacher.class, 10l);
+            System.out.println(teacher.getAssistant().getName());*/
+
+            /*transaction.begin();
             Teacher teacher = session.get(Teacher.class, 10l);
-            System.out.println(teacher.getAssistant().getName());
+            Room room = new Room();
+            room.setNum("6K");
+            session.save(room);
+            teacher.setRoom(room);
+            session.update(teacher);
+            transaction.commit();*/
+
+            /*Room room = session.get(Room.class, 22l);
+            System.out.println(room.getTeacher().getFirstName());*/
 
         } catch (Exception e) {
             e.printStackTrace();

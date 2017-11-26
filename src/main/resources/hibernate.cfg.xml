@@ -35,6 +35,7 @@
     <mapping class="ru.fedichkindenis.Entity.Schedule" />
     <mapping class="ru.fedichkindenis.Entity.Passport" />
     <mapping class="ru.fedichkindenis.Entity.Assistant" />
+    <mapping class="ru.fedichkindenis.Entity.Room" />
 
   </session-factory>
 </hibernate-configuration>
