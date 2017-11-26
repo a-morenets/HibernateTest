@@ -11,6 +11,7 @@ import ru.fedichkindenis.Enum.DayWeek;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -103,6 +104,61 @@ public class Main {
             /*Car car = session.get(Car.class, 23l);
             for (Teacher teacher : car.getTeacherSet()) {
                 System.out.println(teacher.getFirstName());
+            }*/
+
+            /*Query query = session.createQuery("from Teacher t");
+            List<Teacher> teacherList = query.list();*/
+
+            /*Query query = session.createQuery("from Teacher t");
+            query.setParameter("id", 10l);
+            List<Teacher> teacherList = query.list();*/
+
+            /*Query query = session.createQuery("from Teacher t");
+            query.setFirstResult(2);
+            List<Teacher> teacherList = query.list();*/
+
+            /*Query query = session.createQuery("from Teacher t");
+            query.setMaxResults(1);
+            List<Teacher> teacherList = query.list();*/
+
+            /*Query query = session.createQuery("from Teacher t");
+            query.setMaxResults(1);
+            List<Teacher> teacherList = query.list();*/
+
+            /*for(Teacher teacher : teacherList) {
+                System.out.println(teacher.getId());
+                System.out.println(teacher.getFirstName());
+            }*/
+
+            /*Query query = session.createQuery("select t.firstName as name, s.numRoom as room, s.startTime as time " +
+                    "from Teacher t join t.scheduleList s");
+            List<Object[]> resultList = query.list();
+
+            for(Object[] result : resultList) {
+                System.out.println(result[0]);
+                System.out.println(result[1]);
+                System.out.println(result[2]);
+            }*/
+
+            /*Query query = session.createQuery("select new map(t.firstName as name, s.numRoom as room, s.startTime as time) " +
+                    "from Teacher t join t.scheduleList s");
+            List<Map<String, Object>> resultList = query.list();
+
+            for(Map<String, Object> mapResult : resultList) {
+                System.out.println(mapResult.get("name"));
+                System.out.println(mapResult.get("room"));
+                System.out.println(mapResult.get("time"));
+            }*/
+
+            /*Query query = session.getNamedQuery("get_teacher_by_name");
+            query.setParameter("name", "Иван");
+            List<Teacher> resultList = query.list();
+
+            for(Teacher teacher : resultList) {
+                System.out.println(teacher.getId());
+                System.out.println(teacher.getFirstName());
+                System.out.println(teacher.getSecondName());
+                System.out.println(teacher.getSurName());
             }*/
 
         } catch (Exception e) {

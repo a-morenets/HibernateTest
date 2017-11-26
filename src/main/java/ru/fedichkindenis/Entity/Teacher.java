@@ -6,6 +6,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@NamedQueries(
+        @NamedQuery(
+                name = "get_teacher_by_name",
+                query = "from Teacher t where t.firstName = :name"
+        )
+)
+
 @Entity
 @Table(name = "Teacher")
 public class Teacher {
